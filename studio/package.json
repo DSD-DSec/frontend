@@ -1,0 +1,40 @@
+{
+	"name": "sanity-project",
+	"private": true,
+	"version": "1.0.0",
+	"description": "",
+	"main": "package.json",
+	"author": "Kristian Djaković <kristian.djakovic@infinum.hr>",
+	"license": "UNLICENSED",
+	"scripts": {
+		"start": "npx @sanity/cli start",
+		"deploy": "npx @sanity/cli deploy",
+		"cors:add": "npx @sanity/cli cors add",
+		"prestart": "npm run env",
+		"precors:add": "npm run env",
+		"predeploy": "npm run env",
+		"env": "npx @sanity/cli install && cp ../.env .env.development || cp ../.env.local .env.development"
+	},
+	"keywords": [
+		"sanity"
+	],
+	"dependencies": {
+		"@sanity/base": "^2.35.2",
+		"@sanity/core": "^2.35.0",
+		"@sanity/default-layout": "^2.35.2",
+		"@sanity/default-login": "^2.35.2",
+		"@sanity/desk-tool": "^2.35.2",
+		"@sanity/eslint-config-studio": "^2.0.1",
+		"@sanity/vision": "^2.35.2",
+		"eslint": "^8.6.0",
+		"prop-types": "^15.7",
+		"react": "^17.0",
+		"react-dom": "^17.0",
+		"styled-components": "^5.2.0"
+	},
+	"devDependencies": {},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:DSD-DSec/frontend.git"
+	}
+}
