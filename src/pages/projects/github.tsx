@@ -2,8 +2,9 @@ import { AuthRedirect } from '@/components/AuthRedirect/AuthRedirect';
 import { MainLayout } from '@/components/MainLayout/MainLayout';
 import { MainNavigation } from '@/components/MainNavigation/MainNavigation';
 import { GithubIcon } from '@/icon/GithubIcon';
-import { Button } from '@chakra-ui/react';
+import { Button, Flex } from '@chakra-ui/react';
 import { existsSync } from 'fs';
+import { signIn } from 'next-auth/react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import path from 'path';
 import { useEffect, useState } from 'react';
@@ -43,9 +44,19 @@ export default function GithubPage() {
 				navigation={<MainNavigation />}
 				containerProps={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
 			>
-				<Button as="a" colorScheme="primary" leftIcon={<GithubIcon />} href={githubLink}>
-					Integrate with Github
-				</Button>
+				<Flex direction="column" gap={4}>
+					<Button as="a" colorScheme="primary" leftIcon={<GithubIcon />} href={githubLink}>
+						Integrate with Github (Jan)
+					</Button>
+
+					<Button
+						colorScheme="primary"
+						leftIcon={<GithubIcon />}
+						onClick={() => signIn('github', { callbackUrl: '/callback' })}
+					>
+						Integrate with Github (Kristian)
+					</Button>
+				</Flex>
 			</MainLayout>
 		</>
 	);
